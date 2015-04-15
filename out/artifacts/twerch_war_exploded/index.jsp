@@ -43,7 +43,7 @@
             <div class="col-md-10">
                 <div class="collapse" id="collapseAbout">
                     <div class="well well-lg" style="background-color:rgba(0,0,0,0.2)">
-                        <h2><b><%=appName%></b> kita keren.</h2>
+                        <h2><b><%=appName%></b> team</h2>
                         <div class="row">
                             <%-- index 0 = nama,
                              index 1 = gambar,
