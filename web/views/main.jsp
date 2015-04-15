@@ -25,20 +25,14 @@
 		<div class="col-md-6">
 		  <div class="col-md-2"></div>
 		  <div class="col-md-8">
-			<div class="input-group">
-				<div class="input-group-btn" dropdown is-open="status.isopen">
-					<% models.Category c = new Category(); %>
-					<button type="button" class="btn btn-info dropdown-toggle" dropdown-toggle>
-						<%=c.getCategories()[c.getSelectedCategoryId()]%><span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-						<% for (int i=0;i<c.getCategories().length;i++) { %>
-							<li><a><%=c.getCategories()[i]%></a></li>
-						<%}%>
-					</ul>
-				</div>
-			  	<input type="text" ng-model="search.dir" class="form-control" placeholder="e.g. D:\Documents">
-			</div>
+			  <div class="btn-group" data-toggle="buttons">
+				  <% Category c = new Category(); %>
+				  <% for (int i=0;i<c.getCategories().length;i++) { %>
+				  <label class="btn btn-default <%if (i==0) System.out.print("active"); %>">
+					  <a><%=c.getCategories()[i]%></a>
+				  </label>
+				  <%}%>
+			  </div>
 		  </div>
 		  <div class="col-md-2"></div>
 		</div>
@@ -63,6 +57,6 @@
 		</div>
 		<div class="col-md-3"></div>
 	  </div>
-	  <!-- <pre style="margin:20px">Search Debugging: {{search | json}}</pre> -->
+	  <pre style="margin:20px">Search Debugging: {{search | json}}</pre>
 	</form>
 </div>
