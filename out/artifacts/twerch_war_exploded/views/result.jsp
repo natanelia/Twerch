@@ -1,3 +1,9 @@
+<%@ page import="crawler.twerchCrawler" %>
+<%@ page import="models.CategoryKeywords" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.CategoryResult" %>
+<%@ page import="models.TweetObject" %>
 <div class="container">
 	<form novalidate id="search-form" class="form" method="get">
 		<div class="row" style="padding:20px">
@@ -44,14 +50,37 @@
 			</div>
 		</div>
 	</form>
+	<%
+		twerchCrawler tc = new twerchCrawler();
+		List<CategoryKeywords> lck = new ArrayList<CategoryKeywords>();
+		int i = 0;
+		while (request.getParameter("cat-" + i) == null) {
+			List<String> keywordList = new ArrayList<String>();
+			String[] keywords = request.getParameter("cat-keywords-" + i).split(",");
+			for (String keyword : keywords) {
+				keywordList.add(keyword);
+			}
+			CategoryKeywords ck = new CategoryKeywords(request.getParameter("cat-" + i), keywordList);
+			lck.add(ck);
+		}
+		List<CategoryResult> lcr = tc.getResult(request.getParameter("query"), lck, request.getParameter("algorithm"));
+	%>
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-6">
-			<div class="row" id="item" ng-repeat="result in results">
-				<h3><a ng-click='openFile("{{result.snamafile}}")'><b>{{result.namafile}}</b></a></h3>
-				<h6>{{result.direktori}}</h6>
-				<p ng-bind-html="result.isi"></p>
-			</div>
+			<% for (CategoryResult cr : lcr) {%>
+				<div class="row" id="category-title">
+					<%=cr.getCategoryName()%>
+					<%=cr.getCategoryName().length()%>
+				</div>
+
+				<% for (TweetObject to : cr.getTweets()) {%>
+					<div class="row" id="item">
+						<h3><b><%=to.getDisplayName()%></b></h3>
+						<p><%=to.getTweetContent()%></p>
+					</div>
+				<% } %>
+			<% } %>
 		</div>
 		<div class="col-md-5"></div>
 	</div>

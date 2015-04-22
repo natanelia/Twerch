@@ -50,10 +50,10 @@
 			ALGORITHM
 			<div class="btn-group" data-toggle="buttons">
 			  <label class="btn btn-default active">
-				  <input type="radio" name="algorithm" id="KMP" value="KMP" <%if (request.getParameter("algorithm").equals("KMP")) {%>active<%}%>"> Knuth-Morris-Pratt
+				  <input type="radio" name="algorithm" id="KMP" value="KMP" checked> Knuth-Morris-Pratt
 			  </label>
 			  <label class="btn btn-default">
-				  <input type="radio" name="algorithm" id="BM" value="BM" <%if (request.getParameter("algorithm").equals("BM")) {%>active<%}%>"> Boyer-Moore
+				  <input type="radio" name="algorithm" id="BM" value="BM" > Boyer-Moore
 			  </label>
 			</div>
 		  </div>
