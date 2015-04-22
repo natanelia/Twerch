@@ -1,3 +1,6 @@
+import algorithm.BM;
+import algorithm.Pair;
+
 import java.util.*;
 
 public class DemoBM

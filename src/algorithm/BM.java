@@ -1,14 +1,16 @@
+package algorithm;
+
 import java.util.*;
 
 /**
 * Boyer - Moore Algorithm for string mathcing
 */
-public class BM
+public class BM implements SearchAlgorithm
 {
 	/**
 	* Get last index of each characters in pattern
 	*/
-	public static int[] getLasts(String pattern)
+	public int[] getLasts(String pattern)
 	{
 		int res[] = new int[128];
 		
@@ -29,9 +31,10 @@ public class BM
 	* Find matched pattern inside text
 	* @param 	text 					Text to be searched from
 	* @param 	pattern 				Text to be searched for
-	* @return 	Pair<Boolean, ArrayList<Integer> > 	All matched indexes
+	* @return 	algorithm.Pair<Boolean, ArrayList<Integer> > 	All matched indexes
 	*/
-	public static Pair< Boolean, ArrayList<Integer> > find(String text, String pattern)
+	@Override
+	public Pair< Boolean, ArrayList<Integer> > find(String text, String pattern)
 	{
 		int lastIdxs[] = getLasts(pattern);
 		int n = text.length();

@@ -1,3 +1,6 @@
+import algorithm.KMP;
+import algorithm.Pair;
+
 import java.util.*;
 
 public class DemoKMP

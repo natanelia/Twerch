@@ -11,7 +11,7 @@ public class twerchCrawler {
     public twerchCrawler() {}
 
     /**
-     * algorithm string is one of 'KMP' or 'BM'
+     * algorithm string is one of 'algorithm.KMP' or 'algorithm.BM'
      */
     public List<CategoryResult> getResult(String keyword, List<CategoryKeywords> categoryList, String algorithm) {
         List<CategoryResult> result = new ArrayList<CategoryResult>();

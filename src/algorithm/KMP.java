@@ -1,14 +1,16 @@
+package algorithm;
+
 import java.util.*;
 
 /**
 * Knuth-Morris-Pratt Algorithm for string mathcing
 */
-public class KMP
+public class KMP implements SearchAlgorithm
 {
 	/**
 	* Get longest proper prefix suffix
 	*/
-	private static int[] lps(String pattern)
+	private int[] lps(String pattern)
 	{
 		int len = 0;
 		int i = 1;
@@ -39,9 +41,10 @@ public class KMP
 	* Find matched pattern inside text
 	* @param 	text 					Text to be searched from
 	* @param 	pattern 				Text to be searched for
-	* @return 	Pair<Boolean, ArrayList<Integer> > 	All matched indexes
+	* @return 	algorithm.Pair<Boolean, ArrayList<Integer> > 	All matched indexes
 	*/
-	public static Pair< Boolean, ArrayList<Integer> > find(String text, String pattern)
+	@Override
+	public Pair< Boolean, ArrayList<Integer> > find(String text, String pattern)
 	{
 		int lps[] = lps(pattern);
 		int n = text.length();

@@ -1,3 +1,5 @@
+package algorithm;
+
 /**
 * Class for storing pair of values
 */
