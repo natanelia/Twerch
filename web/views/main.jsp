@@ -12,7 +12,7 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 		  <div class="input-group input-group-lg">
-			<input type="text" name="query" class="form-control" placeholder="Search files here...">
+			<input type="text" name="query" class="form-control" placeholder="Search hashtags or keywords here...">
 			<span class="input-group-btn">
 			  <button class="btn btn-warning" id="search-form-submit" type="submit">
 				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -53,7 +53,7 @@
 				  <input type="radio" name="algorithm" id="KMP" value="KMP" checked> Knuth-Morris-Pratt
 			  </label>
 			  <label class="btn btn-default">
-				  <input type="radio" name="algorithm" id="BM" value="BM"> Boyer-Moore
+				  <input type="radio" name="algorithm" id="BM" value="BM" > Boyer-Moore
 			  </label>
 			</div>
 		  </div>
