@@ -3,6 +3,7 @@ package crawler;
 import models.CategoryKeywords;
 import models.CategoryResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class twerchCrawler {
@@ -13,7 +14,7 @@ public class twerchCrawler {
      * algorithm string is one of 'KMP' or 'BM'
      */
     public List<CategoryResult> getResult(String keyword, List<CategoryKeywords> categoryList, String algorithm) {
-        List<CategoryResult> result = new List<CategoryResult>();
+        List<CategoryResult> result = new ArrayList<CategoryResult>();
 
         return result;
     }
