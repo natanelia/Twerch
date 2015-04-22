@@ -1,13 +1,12 @@
 package crawler;
 
+import models.TweetObject;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by vincentsthe on 15/04/15.
- */
 public class TweetCrawler {
 
     Twitter twitter;
@@ -17,28 +16,22 @@ public class TweetCrawler {
         twitter.setOAuthConsumer("tar3HZAj35eLfEQtlo1hdotnx", "zgKYav5bbH5yWVDjeqNmgK4ms588l9J4lLtKoBSJTKDmOxHThE");
     }
 
-    public static void main(String[] args) {
-        if (args.length < 1) {
-            System.out.println("java twitter4j.examples.search.SearchTweets [query]");
-            System.exit(-1);
-        }
+    public List<TweetObject> crawlByKeyword(String keyword) {
         Twitter twitter = new TwitterFactory(cresidential().build()).getInstance();
+        List<TweetObject> crawlResult = new ArrayList<TweetObject>();
         try {
-            Query query = new Query(args[0]);
-            QueryResult result;
-            do {
-                result = twitter.search(query);
-                List<Status> tweets = result.getTweets();
-                for (Status tweet : tweets) {
-                    System.out.println("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
-                }
-            } while ((query = result.nextQuery()) != null);
-            System.exit(0);
-        } catch (TwitterException te) {
-            te.printStackTrace();
-            System.out.println("Failed to search tweets: " + te.getMessage());
-            System.exit(-1);
+            Query query = new Query(keyword).count(100);
+            QueryResult result = twitter.search(query);
+            List<Status> tweets = result.getTweets();
+            for (Status tweet : tweets) {
+                crawlResult.add(new TweetObject(tweet.getUser().getScreenName(), tweet.getText()));
+            }
+
+        } catch (TwitterException e) {
+            e.printStackTrace();
+            System.out.println("Failed to search tweets: " + e.getMessage());
         }
+        return crawlResult;
     }
 
     private static ConfigurationBuilder cresidential() {
