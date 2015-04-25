@@ -14,7 +14,8 @@ public class DemoBM
 		}
 		
 		long startTime = System.nanoTime();
-		Pair<Boolean, ArrayList<Integer>> res = BM.find(args[0], args[1]);
+		BM bm = new BM();
+		Pair<Boolean, ArrayList<Integer>> res = bm.find(args[0], args[1]);
 		long endTime = System.nanoTime();
 		double duration = (double)(endTime - startTime)/1000000;
 		

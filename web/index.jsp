@@ -11,13 +11,14 @@
     <%
         String appName = "Twerch";
         String[][] creator = {
-                {"Natan", "images/Natan.jpg", "13513070@std.stei.itb.ac.id", "http://www.facebook.com/natanelia", "http://www.twitter.com/natanelia"},
-                {"Elvan Owen", "images/Elvan.jpg", "13513070@std.stei.itb.ac.id", "http://www.facebook.com/elvanowen", "http://www.twitter.com/elvanowen"},
-                {"Vincent Sebastian Th", "images/Vincent.jpg", "13513070@std.stei.itb.ac.id", "http://www.facebook.com/vincentth", "http://www.twitter.com/vincentth"}
+                {"Natan", "images/Natan.jpg", "13513070@std.stei.itb.ac.id", "https://www.facebook.com/natanelia", "http://www.twitter.com/natanelia"},
+                {"Elvan Owen", "images/Elvan.jpg", "13513082@std.stei.itb.ac.id", "https://www.facebook.com/elvan.owen.9", "https://twitter.com/elvanowen"},
+                {"Vincent Sebastian Th", "images/Vincent.jpg", "13513057@std.stei.itb.ac.id", "https://www.facebook.com/vincent.s.the", "https://twitter.com/vincentsthe"}
         };
     %>
     <title><%=appName%> | Twitter Search</title>
     <meta name="viewport" content="width=device-width">
+    <link href="images/favicon.ico" rel="icon" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/font-awesome.css"/>
     <link rel="stylesheet" href="css/main.css"/>
@@ -50,9 +51,9 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
                 <div class="collapse" id="collapseAbout">
-                    <div class="well well-lg" style="background-color:rgba(0,0,0,0.2)">
+                    <div class="well well-lg" style="background-color:rgba(0,0,0,0.3)">
                         <h2><b><%=appName%>
-                        </b> team</h2>
+                        </b> Team</h2>
 
                         <div class="row">
                             <%-- index 0 = nama,

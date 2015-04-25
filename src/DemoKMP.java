@@ -14,7 +14,8 @@ public class DemoKMP
 		}
 		
 		long startTime = System.nanoTime();
-		Pair<Boolean, ArrayList<Integer>> res = KMP.find(args[0], args[1]);
+		KMP kmp = new KMP();
+		Pair<Boolean, ArrayList<Integer>> res = kmp.find(args[0], args[1]);
 		long endTime = System.nanoTime();
 		double duration = (double)(endTime - startTime)/1000000;
 		
