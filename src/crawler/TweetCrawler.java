@@ -13,7 +13,7 @@ public class TweetCrawler {
 
     public TweetCrawler() {
         twitter = TwitterFactory.getSingleton();
-        twitter.setOAuthConsumer("tar3HZAj35eLfEQtlo1hdotnx", "zgKYav5bbH5yWVDjeqNmgK4ms588l9J4lLtKoBSJTKDmOxHThE");
+        //twitter.setOAuthConsumer("tar3HZAj35eLfEQtlo1hdotnx", "zgKYav5bbH5yWVDjeqNmgK4ms588l9J4lLtKoBSJTKDmOxHThE");
     }
 
     public List<TweetObject> crawlByKeyword(String keyword) {

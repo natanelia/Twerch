@@ -12,7 +12,7 @@
 			</div>
 			<div class="col-lg-4 col-md-4">
 				<div class="input-group">
-					<input type="text" name="query" class="form-control" placeholder="Search files here...">
+					<input type="text" name="query" class="form-control" placeholder="Search keywords or hashtags here..." value="<%=request.getParameter("query")%>">
 					<span class="input-group-btn">
 					  <button class="btn btn-warning" id="search-form-submit" type="submit">
 						  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -54,7 +54,7 @@
 		twerchCrawler tc = new twerchCrawler();
 		List<CategoryKeywords> lck = new ArrayList<CategoryKeywords>();
 		int i = 0;
-		while (request.getParameter("cat-" + i) == null) {
+		while (request.getParameter("cat-" + i) != null) {
 			List<String> keywordList = new ArrayList<String>();
 			String[] keywords = request.getParameter("cat-keywords-" + i).split(",");
 			for (String keyword : keywords) {
@@ -62,26 +62,29 @@
 			}
 			CategoryKeywords ck = new CategoryKeywords(request.getParameter("cat-" + i), keywordList);
 			lck.add(ck);
+			i++;
 		}
 		List<CategoryResult> lcr = tc.getResult(request.getParameter("query"), lck, request.getParameter("algorithm"));
 	%>
 	<div class="row">
 		<div class="col-md-1"></div>
-		<div class="col-md-6">
+		<div class="col-md-10">
 			<% for (CategoryResult cr : lcr) {%>
 				<div class="row" id="category-title">
-					<%=cr.getCategoryName()%>
-					<%=cr.getCategoryName().length()%>
+					<h2><%=cr.getCategoryName()%>
+					<%="(" + cr.getTweets().size() + ")"%></h2>
 				</div>
 
 				<% for (TweetObject to : cr.getTweets()) {%>
-					<div class="row" id="item">
-						<h3><b><%=to.getDisplayName()%></b></h3>
-						<p><%=to.getTweetContent()%></p>
+					<div class="row" id="item" style="padding-left:10px">
+						<div class="col-md-8">
+							<h3><b><%=to.getDisplayName()%></b></h3>
+							<p><%=to.getTweetContent()%></p>
+						</div>
 					</div>
 				<% } %>
 			<% } %>
 		</div>
-		<div class="col-md-5"></div>
+		<div class="col-md-1"></div>
 	</div>
 </div>

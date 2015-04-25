@@ -70,7 +70,7 @@ public class BM implements SearchAlgorithm
 			{
 				int lastIdx = lastIdxs[text.charAt(i)];
 				i += m - Math.min(j, 1 + lastIdx);
-				j = m - 1; 
+				j = m - 1;
 			}
 		}while (i <= n-1);
 	
