@@ -25,7 +25,7 @@ public class twerchCrawler {
         for (CategoryKeywords categoryKeywords : categoryList) {
             result.add(new CategoryResult(categoryKeywords.getCategoryName(), new ArrayList<TweetObject>()));
         }
-        result.add(new CategoryResult("unknown", new ArrayList<TweetObject>()));
+        result.add(new CategoryResult("Unknown", new ArrayList<TweetObject>()));
 
         for (TweetObject tweet : tweetList) {
             int categoryIndex = -1;
