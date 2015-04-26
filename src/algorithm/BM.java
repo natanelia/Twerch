@@ -12,7 +12,7 @@ public class BM implements SearchAlgorithm
 	*/
 	public int[] getLasts(String pattern)
 	{
-		int res[] = new int[128];
+		int res[] = new int[100000];
 		
 		for (int i = 0;i < 128;i++)
 		{
