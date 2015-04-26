@@ -11,8 +11,8 @@
     <%
         String appName = "Twerch";
         String[][] creator = {
-                {"Natan", "images/Natan.jpg", "13513070@std.stei.itb.ac.id", "https://www.facebook.com/natanelia", "http://www.twitter.com/natanelia"},
                 {"Elvan Owen", "images/Elvan.jpg", "13513082@std.stei.itb.ac.id", "https://www.facebook.com/elvan.owen.9", "https://twitter.com/elvanowen"},
+                {"Natan", "images/Natan.jpg", "13513070@std.stei.itb.ac.id", "https://www.facebook.com/natanelia", "http://www.twitter.com/natanelia"},
                 {"Vincent Sebastian Th", "images/Vincent.jpg", "13513057@std.stei.itb.ac.id", "https://www.facebook.com/vincent.s.the", "https://twitter.com/vincentsthe"}
         };
     %>

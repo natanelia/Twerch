@@ -163,6 +163,15 @@ $(document).ready(function() {
                 $('#cat-keywords-' + id).val(keywords);
                 setCategoryName(id, this.value);
                 $('#selected-category-names').html(getCategoryNames);
+            } else {
+                setCategoryName(id, this.value);
+            }
+        });
+        $('[id^="cat-keywords-"]').on('input', function() {
+            var sp = this.id.split("-");
+            var id = sp[sp.length - 1];
+            if ($('#cat-name-'+id).val() != "") {
+                setCategoryKeywords($('#cat-name-'+id).val(), this.value);
             }
         });
     }
