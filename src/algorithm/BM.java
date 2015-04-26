@@ -14,7 +14,7 @@ public class BM implements SearchAlgorithm
 	{
 		int res[] = new int[100000];
 		
-		for (int i = 0;i < 128;i++)
+		for (int i = 0;i < 100000;i++)
 		{
 			res[i] = -1;
 		}
